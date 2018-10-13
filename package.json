@@ -1,0 +1,29 @@
+{
+  "name": "billingservice",
+  "version": "1.0.0",
+  "description": "Service to manage billing on Geskep",
+  "main": "dist/src/server.js",
+  "scripts": {
+    "build-ts": "tsc",
+    "start": "npm run serve",
+    "serve": "node dist/server.js",
+    "watch-node": "nodemon dist/src/server.js",
+    "watch-ts": "tsc -w",
+    "mongod": "mongod --dbpath db"
+  },
+  "author": "Samuel Luis",
+  "license": "MIT",
+  "dependencies": {
+    "@types/express": "^4.16.0",
+    "@types/mongoose": "^5.2.18",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "mongodb": "^3.1.6",
+    "mongoose": "^5.3.2"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.4",
+    "tslint": "^5.11.0",
+    "typescript": "^3.1.1"
+  }
+}

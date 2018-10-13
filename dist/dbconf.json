@@ -1,0 +1,16 @@
+{
+    "user": "geskepdb",
+    "password": "G3sk3pDB",
+    "database": "billing",
+    "hosts": [
+        "geskep-shard-00-00-hm3nm.mongodb.net:27017",
+        "geskep-shard-00-01-hm3nm.mongodb.net:27017",
+        "geskep-shard-00-02-hm3nm.mongodb.net:27017"
+    ],
+    "params": {
+        "ssl": true,
+        "replicaSet": "Geskep-shard-0",
+        "authSource": "admin",
+        "retryWrites": true
+    }
+}
