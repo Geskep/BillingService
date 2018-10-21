@@ -22,7 +22,7 @@ class Server {
         routes_1.Routes.init(this.app);
     }
     start() {
-        this.app.listen(3000, () => { console.log("Server Started!"); });
+        this.app.listen(80, () => { console.log("Server Started!"); });
     }
     config() {
         this.app.use(parser.json());
@@ -34,6 +34,7 @@ class Server {
         let uri = 'mongodb://' + dbconf.user + ':' + dbconf.password + '@' + dbconf.hosts.join() + '/' + dbconf.database + '?' + params;
         console.log(uri);
         mongoose_1.connect(uri, { useNewUrlParser: true });
+        mongoose_1.set('useCreateIndex', true);
     }
 }
 let server = new Server();

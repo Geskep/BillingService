@@ -1,26 +1,33 @@
-import {Application, Request, Response, NextFunction} from "express";
+import {Application, Request, Response, /*NextFunction*/} from "express";
 import {UsersController} from './controllers/users';
 
 export class Routes {
 
     public static init(app: Application): void {
         let routes: {[index: string]: any} = {
-            "/": {
-                get: (req: Request, res: Response, next: NextFunction) => {
-                    res.send({a: 3})
+            "/login": {
+                post: (req: Request, res: Response) => {
+                    UsersController.login(req.body).then(
+                        (token) => {
+                            res.send({token: token});
+                        },
+                        () => {
+                            res.sendStatus(401);
+                        }
+                    );
                 }
             },
             "/users": {
-                get: (req: Request, res: Response, next: NextFunction) => {
+                get: (req: Request, res: Response) => {
                     res.send({a: 3})
                 },
-                put: (req: Request, res: Response, next: NextFunction) => {
+                put: (req: Request, res: Response) => {
                     res.send({a: 3})
                 },
-                post: (req: Request, res: Response, next: NextFunction) => {
+                post: (req: Request, res: Response) => {
                     res.send(UsersController.create(req.body));
                 },
-                delete: (req: Request, res: Response, next: NextFunction) => {
+                delete: (req: Request, res: Response) => {
                     res.send({a: 3})
                 }
             }

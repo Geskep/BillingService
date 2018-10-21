@@ -14,14 +14,16 @@
   "author": "Samuel Luis",
   "license": "MIT",
   "dependencies": {
-    "@types/express": "^4.16.0",
-    "@types/mongoose": "^5.2.18",
+    "bcrypt-nodejs": "0.0.3",
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
     "mongodb": "^3.1.6",
     "mongoose": "^5.3.2"
   },
   "devDependencies": {
+    "@types/bcrypt-nodejs": "0.0.30",
+    "@types/express": "^4.16.0",
+    "@types/mongoose": "^5.2.18",
     "nodemon": "^1.18.4",
     "tslint": "^5.11.0",
     "typescript": "^3.1.1"

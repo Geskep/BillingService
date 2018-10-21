@@ -1,18 +1,18 @@
 import {User} from '../models/user';
 
 export class UsersController{
+
+    static login(data: any){
+        return new Promise((resolve, reject) => {
+            User.findOne({username: data.username, password: data.password}, (err, user) => {
+                if(err) reject(err);
+                else if(!user) reject(new Error("Login failed."));
+                else resolve(user);
+            });
+        });
+    }
+
     static create(data: any){
-        let user = new User(data);
-        console.log(user);
-        (user.save()
-            .then((user) => {
-                console.log(user);
-                return user;
-            })
-            .catch((err) => {
-                console.log(err);
-                return null;
-            })
-        );
+        return new User(data).save()
     }
 }
