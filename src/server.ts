@@ -1,7 +1,7 @@
 import express from 'express';
 import {Routes} from './routes';
 import * as parser from 'body-parser';
-import {connect} from 'mongoose';
+import {connect, set} from 'mongoose';
 import * as conf from '../dbconf.json';
 
 class Server {
@@ -15,7 +15,7 @@ class Server {
     }
 
     start(){
-        this.app.listen(3000, () => {console.log("Server Started!")});
+        this.app.listen(80, () => {console.log("Server Started!")});
     }
 
     private config(): void {
@@ -28,6 +28,7 @@ class Server {
         let uri = 'mongodb://' + dbconf.user + ':' + dbconf.password + '@' + dbconf.hosts.join() + '/' + dbconf.database + '?' + params;
         console.log(uri);
         connect(uri, {useNewUrlParser: true});
+        set('useCreateIndex', true);
     }
 }
 
