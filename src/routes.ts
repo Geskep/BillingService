@@ -19,7 +19,7 @@ export class Routes {
             },
             "/users": {
                 get: (req: Request, res: Response) => {
-                    res.send({a: 3})
+                    res.send({a: 4})
                 },
                 put: (req: Request, res: Response) => {
                     res.send({a: 3})
