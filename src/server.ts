@@ -26,7 +26,6 @@ class Server {
             return key + "=" + dbconf.params[key];
         }).join("&");
         let uri = 'mongodb://' + dbconf.user + ':' + dbconf.password + '@' + dbconf.hosts.join() + '/' + dbconf.database + '?' + params;
-        console.log(uri);
         connect(uri, {useNewUrlParser: true});
         set('useCreateIndex', true);
     }
